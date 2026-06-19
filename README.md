@@ -728,3 +728,53 @@ Uma reserva concluída representa um processo já executado e registrado no hist
 Uma reserva cancelada representa uma decisão definitiva de interrupção do fluxo.
 
 Permitir a reabertura de estados terminais comprometeria a rastreabilidade e a consistência do histórico operacional.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========================================================================================= tests coverage ==========================================================================================
+________________________________________________________________________ coverage: platform linux, python 3.13.14-final-0 _________________________________________________________________________
+
+Name                                         Stmts   Miss  Cover
+----------------------------------------------------------------
+app/__init__.py                                  0      0   100%
+app/core/__init__.py                             0      0   100%
+app/core/config.py                               8      0   100%
+app/core/database.py                            16      4    75%
+app/core/dependencies.py                         8      4    50%
+app/core/exceptions.py                           9      0   100%
+app/core/handlers.py                             7      0   100%
+app/main.py                                     15      1    93%
+app/models/__init__.py                           7      0   100%
+app/models/equipment.py                         18      0   100%
+app/models/maintenance.py                       24      0   100%
+app/models/reservation.py                       31      0   100%
+app/models/reservation_history.py               22      1    95%
+app/models/user.py                              15      0   100%
+app/repositories/__init__.py                     5      0   100%
+app/repositories/equipment_repository.py        26     13    50%
+app/repositories/maintenance_repository.py      12      4    67%
+app/repositories/reservation_repository.py      34      3    91%
+app/repositories/user_repository.py             17      0   100%
+app/routers/__init__.py                          5      0   100%
+app/routers/equipments.py                       18      3    83%
+app/routers/maintenances.py                     10      1    90%
+app/routers/reservations.py                     18      0   100%
+app/routers/users.py                            13      0   100%
+app/schemas/__init__.py                          5      0   100%
+app/schemas/common.py                           22      0   100%
+app/schemas/equipment.py                        20      0   100%
+app/schemas/maintenance.py                      21      3    86%
+app/schemas/reservation.py                      33      1    97%
+app/schemas/user.py                             13      0   100%
+app/services/__init__.py                         5      0   100%
+app/services/equipment_service.py               27      9    67%
+app/services/maintenance_service.py             18      7    61%
+app/services/reservation_service.py             63      4    94%
+app/services/user_service.py                    25      2    92%
+----------------------------------------------------------------
+TOTAL                                          590     60    90%
+===================================================================================== short test summary info =====================================================================================
+FAILED tests/test_pagination.py::test_reservation_pagination - pydantic_core._pydantic_core.PydanticSerializationError: Unable to serialize unknown type: <class 'app.models.reservation.Reservation'>
+FAILED tests/test_reservations.py::test_unavailable_equipment_cannot_be_reserved - assert 201 == 409
+=========================================================================== 2 failed, 10 passed, 61 warnings in 11.96s ============================================================================
+
+PS C:\Users\paula\OneDrive\Área de Trabalho\Api_Reserva_De_Equipamentos> 
